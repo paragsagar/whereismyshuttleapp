@@ -60,6 +60,7 @@ public class User {
 	 * @param fileDir
 	 */
 	public void setEmail(String email_, File fileDir) {
+		email_ = email_.trim();
 		if (email != null && !email.equalsIgnoreCase(email_)) {
 			String action = "adduser";
 			writeToFile(email_, fileDir);

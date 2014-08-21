@@ -4,6 +4,7 @@ package com.ff.whereismyshuttle.domain;
 		
 		private String routeName;
 		private int routeId;
+		private boolean isSelected;
 		
 		public String getRouteName() {
 			return routeName;
@@ -19,5 +20,13 @@ package com.ff.whereismyshuttle.domain;
 
 		public void setRouteId(int routeId) {
 			this.routeId = routeId;
+		}
+
+		public boolean isSelected() {
+			return isSelected;
+		}
+
+		public void setSelected(boolean isSelected) {
+			this.isSelected = isSelected;
 		}		
 	}

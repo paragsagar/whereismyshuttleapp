@@ -13,16 +13,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnSelectRoute"
+        tools:listitem="@layout/all_route_row"
         android:layout_centerHorizontal="true" >
 
     </ListView>
 
     <Button
+        android:id="@+id/btnDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnSelectRoute"
+        android:layout_alignRight="@+id/lvRoutes"
+        android:onClick="processDone"
+        android:text="@string/btn_done_label" />
+
+    <Button
         android:id="@+id/btnSelectRoute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lvRoutes"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:onClick="addToUserRoutes"
         android:text="@string/btnSelectRouteLabel" />
 
 </RelativeLayout>

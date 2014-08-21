@@ -14,5 +14,6 @@
     <string name="btnSelectRouteLabel">Add to my routes</string>
     <string name="server_ip_address">130.200.59.134:9000</string>
     <string name="server_base_url">/api/v1/User/</string>
+    <string name="btn_done_label">Done</string>
 
 </resources>

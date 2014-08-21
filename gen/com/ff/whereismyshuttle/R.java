@@ -1473,18 +1473,20 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f080028;
         public static final int action_menu_presenter=0x7f080029;
         public static final int action_mode_close_button=0x7f080036;
-        public static final int action_settings=0x7f080064;
+        public static final int action_settings=0x7f080068;
         public static final int activity_chooser_view_content=0x7f080037;
         public static final int always=0x7f08001e;
         public static final int beginning=0x7f080023;
         public static final int book_now=0x7f080010;
-        public static final int btnAddEmail=0x7f080056;
+        public static final int btnAddEmail=0x7f080057;
         public static final int btnCheckIn=0x7f08004e;
+        public static final int btnDone=0x7f080055;
         public static final int btnMaps=0x7f08004f;
         public static final int btnSelectRoute=0x7f080054;
         public static final int buyButton=0x7f08000a;
         public static final int buy_now=0x7f08000f;
         public static final int buy_with_google=0x7f08000e;
+        public static final int cbRouteId=0x7f08005b;
         public static final int checkbox=0x7f08003f;
         public static final int classic=0x7f080011;
         public static final int collapseActionView=0x7f080020;
@@ -1494,7 +1496,7 @@ containing a value of this type.
         public static final int dropdown=0x7f080022;
         public static final int edit_query=0x7f080042;
         public static final int end=0x7f080025;
-        public static final int etEmail=0x7f080055;
+        public static final int etEmail=0x7f080056;
         public static final int expand_activities_button=0x7f080038;
         public static final int expanded_menu=0x7f08003e;
         public static final int grayscale=0x7f080012;
@@ -1510,8 +1512,8 @@ containing a value of this type.
         public static final int list_item=0x7f08003b;
         public static final int lvRouteDetails=0x7f080052;
         public static final int lvRoutes=0x7f080053;
-        public static final int lvUserRoutes=0x7f080057;
-        public static final int mapid=0x7f080058;
+        public static final int lvUserRoutes=0x7f080058;
+        public static final int mapid=0x7f08005d;
         public static final int match_parent=0x7f08000c;
         public static final int middle=0x7f080024;
         public static final int monochrome=0x7f080013;
@@ -1548,16 +1550,18 @@ containing a value of this type.
         public static final int terrain=0x7f080003;
         public static final int title=0x7f08003d;
         public static final int top_action_bar=0x7f080032;
-        public static final int tvCheckins=0x7f080061;
-        public static final int tvEta=0x7f080060;
-        public static final int tvLatitude=0x7f08005b;
-        public static final int tvLongitude=0x7f08005c;
-        public static final int tvRouteId=0x7f080062;
-        public static final int tvRouteName=0x7f080063;
-        public static final int tvSta=0x7f08005f;
-        public static final int tvStopDetails=0x7f08005e;
-        public static final int tvStopId=0x7f08005a;
-        public static final int tvStopName=0x7f08005d;
+        public static final int tvAllRouteId=0x7f08005a;
+        public static final int tvAllRouteName=0x7f08005c;
+        public static final int tvCheckins=0x7f080065;
+        public static final int tvEta=0x7f080064;
+        public static final int tvLatitude=0x7f08005f;
+        public static final int tvLongitude=0x7f080060;
+        public static final int tvRouteId=0x7f080066;
+        public static final int tvRouteName=0x7f080067;
+        public static final int tvSta=0x7f080063;
+        public static final int tvStopDetails=0x7f080062;
+        public static final int tvStopId=0x7f08005e;
+        public static final int tvStopName=0x7f080061;
         public static final int up=0x7f080033;
         public static final int useLogo=0x7f080016;
         public static final int withText=0x7f08001f;
@@ -1618,11 +1622,12 @@ containing a value of this type.
         public static final int activity_routes=0x7f030019;
         public static final int activity_user_profile=0x7f03001a;
         public static final int activity_user_routes=0x7f03001b;
-        public static final int googlemaps=0x7f03001c;
-        public static final int route_details_row=0x7f03001d;
-        public static final int route_list=0x7f03001e;
-        public static final int route_row=0x7f03001f;
-        public static final int support_simple_spinner_dropdown_item=0x7f030020;
+        public static final int all_route_row=0x7f03001c;
+        public static final int googlemaps=0x7f03001d;
+        public static final int route_details_row=0x7f03001e;
+        public static final int route_list=0x7f03001f;
+        public static final int route_row=0x7f030020;
+        public static final int support_simple_spinner_dropdown_item=0x7f030021;
     }
     public static final class menu {
         public static final int user_profile=0x7f0c0000;
@@ -1674,6 +1679,7 @@ containing a value of this type.
         public static final int btnCheckInLabel=0x7f07002e;
         public static final int btnMapsLabel=0x7f07002f;
         public static final int btnSelectRouteLabel=0x7f070031;
+        public static final int btn_done_label=0x7f070034;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 

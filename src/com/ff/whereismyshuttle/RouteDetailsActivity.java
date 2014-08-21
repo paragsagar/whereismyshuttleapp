@@ -1,20 +1,25 @@
 package com.ff.whereismyshuttle;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.ff.whereismyshuttle.UserRoutesActivity.RoutesAsyncManager;
 import com.ff.whereismyshuttle.domain.Route;
 import com.ff.whereismyshuttle.domain.RouteDetail;
 import com.ff.whereismyshuttle.domain.RouteDetailsArrayAdapter;
+import com.ff.whereismyshuttle.domain.User;
 import com.ff.whereismyshuttle.services.JSONServiceManager;
 
 import android.support.v7.app.ActionBarActivity;
@@ -28,6 +33,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -47,12 +53,14 @@ public class RouteDetailsActivity extends BaseActivity implements LocationListen
 	private String url="completeroutedetails/";
 	Button SHOWMAP ;
 	
+	private int routeId;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_route_details);
 
-		int routeId = getIntent().getIntExtra("routeId",1);
+		routeId = getIntent().getIntExtra("routeId",1);
 		
 		url = url+routeId;
 		
@@ -94,12 +102,34 @@ public class RouteDetailsActivity extends BaseActivity implements LocationListen
 				
 			lastLocation.getLatitude();
 			lastLocation.getLongitude();
-			Toast.makeText(this, "Your Shuttle is at this location"+ lastLocation.getLatitude() +" longitude : "+lastLocation.getLongitude(), Toast.LENGTH_SHORT).show();
+			String text = "CheckInTime"+ACCESSIBILITY_SERVICE ;
+			text += "checkinLocationLat"+lastLocation.getLatitude() ;
+			text += "checkinLocationLat"+lastLocation.getLatitude() ;
+			text += "routeDetailsId"+ routeId ;
+			text += "userEmailId"+lastLocation.getLatitude() ;
+			
+			JSONObject checkin = new JSONObject();
+			try {
+
+				checkin.put("checkinTime", new Date());
+				checkin.put("checkinLocationLat", lastLocation.getLatitude());
+				checkin.put("checkinLocationLon", lastLocation.getLongitude());
+				checkin.put("routeDetailsId", routeId);
+				checkin.put("userEmailId", User.getEmail(getFilesDir()));
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			checkin.toString();
+			
+			Toast.makeText(this, "Your Shuttle is at this location"+ lastLocation.getLatitude() +" longitude : "+lastLocation.getLongitude() + "\n JSSON"+checkin.toString(), Toast.LENGTH_SHORT).show();
 			//send this location to Server
+			
+//			Asyncmanager
+			(new CheckinAsyncManager()).execute("checkin",checkin.toString());
 		}
-		else{
-			Toast.makeText(this, " longitude : "+lastLocation, Toast.LENGTH_SHORT).show();
-		}
+
 			
 	}
 
@@ -232,5 +262,46 @@ public class RouteDetailsActivity extends BaseActivity implements LocationListen
 
 		}
 
-	}	
+	}
+	
+	public class CheckinAsyncManager extends AsyncTask<String, Void, Boolean> {
+
+		@Override
+		protected Boolean doInBackground(String... params) {
+			String result = "";
+			JSONArray jArray = null;
+			try {
+				HttpClient httpClient = new DefaultHttpClient();
+				String uri = JSONServiceManager.BASE_URL+ params[0];
+				HttpPost httpPost = new HttpPost(uri);
+	//			HttpGet httpGet = new HttpGet(uri);
+				httpPost.setHeader("content-type", "application/json; charset=UTF-8");
+				
+				httpPost.setEntity(new StringEntity(params[1]));
+				
+				HttpResponse response = httpClient.execute(httpPost);
+	
+				int status = response.getStatusLine().getStatusCode();
+				System.out.println("jSon String:"+params[1]);
+				System.out.println("url : "+ uri);
+				System.out.println("status : "+ status);
+				if (status == 200) {
+					HttpEntity entity = response.getEntity();
+					result = EntityUtils.toString(entity);
+					
+					System.out.println("entity results: "+result);
+					
+					jArray = new JSONArray(result);
+				}
+	
+	
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+	
+			}
+			return false;
+		}	
+	}
+	
 }
