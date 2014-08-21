@@ -56,7 +56,7 @@ public class RouteDetailsActivity extends BaseActivity implements LocationListen
 		
 		url = url+routeId;
 		
-		Toast.makeText(this, " URL : "+url, Toast.LENGTH_LONG).show();
+//		Toast.makeText(this, " URL : "+url, Toast.LENGTH_LONG).show();
 
 		(new RouteDetailAsyncManager()).execute(url);
 		

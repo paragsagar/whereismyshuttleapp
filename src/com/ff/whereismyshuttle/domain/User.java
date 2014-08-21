@@ -12,6 +12,7 @@ import org.apache.http.client.HttpClient;
 
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
@@ -53,13 +54,17 @@ public class User {
 	}
 
 
-	public void setEmail(String email_,File fileDir) {
-		email = email_;
-		String url = "adduser";
-		writeToFile(email_,fileDir);
-		UserAsyncManager sync = new UserAsyncManager();
-		sync.execute(url,email_);
-
+	/**
+	 * Saves user in local cache and on server.
+	 * @param email_
+	 * @param fileDir
+	 */
+	public void setEmail(String email_, File fileDir) {
+		if (email != null && !email.equalsIgnoreCase(email_)) {
+			String action = "adduser";
+			writeToFile(email_, fileDir);
+			(new UserAsyncManager()).execute(action, email_);
+		}
 	}
 	
 	/**
@@ -85,11 +90,13 @@ public class User {
 				String uri = JSONServiceManager.BASE_URL+ params[0];
 				HttpPost httpPost = new HttpPost(uri);
 	//			HttpGet httpGet = new HttpGet(uri);
-				httpPost.setHeader("content-type", "application/json");
-				List<BasicNameValuePair> nameValuePairs = new ArrayList<BasicNameValuePair>();
-                // add an HTTP variable and value pair
-				nameValuePairs.add(new BasicNameValuePair("myHttpData", params[1]));
-				httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+				httpPost.setHeader("content-type", "application/json; charset=UTF-8");
+				
+				
+				JSONObject jObj = new JSONObject();
+				jObj.put("userEmail", params[1]);
+				
+				httpPost.setEntity(new StringEntity(jObj.toString()));
 				
 				HttpResponse response = httpClient.execute(httpPost);
 	

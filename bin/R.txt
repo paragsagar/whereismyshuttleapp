@@ -458,8 +458,9 @@ int layout activity_user_profile 0x7f03001a
 int layout activity_user_routes 0x7f03001b
 int layout googlemaps 0x7f03001c
 int layout route_details_row 0x7f03001d
-int layout route_row 0x7f03001e
-int layout support_simple_spinner_dropdown_item 0x7f03001f
+int layout route_list 0x7f03001e
+int layout route_row 0x7f03001f
+int layout support_simple_spinner_dropdown_item 0x7f030020
 int menu user_profile 0x7f0c0000
 int string abc_action_bar_home_description 0x7f07001b
 int string abc_action_bar_up_description 0x7f07001c
@@ -507,6 +508,8 @@ int string common_signin_button_text 0x7f070017
 int string common_signin_button_text_long 0x7f070018
 int string hello_world 0x7f070028
 int string hint_email 0x7f07002a
+int string server_base_url 0x7f070033
+int string server_ip_address 0x7f070032
 int string title_activity_route_details 0x7f07002d
 int string title_activity_routes 0x7f07002c
 int string title_activity_user_routes 0x7f070030

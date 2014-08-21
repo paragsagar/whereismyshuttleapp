@@ -10,7 +10,9 @@
     <string name="title_activity_route_details">Route Details</string>
     <string name="btnCheckInLabel">"Check In "</string>
     <string name="btnMapsLabel">Open in Maps</string>
-    <string name="title_activity_user_routes">Where is my Shuttle : My Routes</string>
+    <string name="title_activity_user_routes">Where is my Shuttle</string>
     <string name="btnSelectRouteLabel">Add to my routes</string>
+    <string name="server_ip_address">130.200.59.134:9000</string>
+    <string name="server_base_url">/api/v1/User/</string>
 
 </resources>

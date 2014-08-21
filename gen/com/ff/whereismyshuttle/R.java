@@ -1620,8 +1620,9 @@ containing a value of this type.
         public static final int activity_user_routes=0x7f03001b;
         public static final int googlemaps=0x7f03001c;
         public static final int route_details_row=0x7f03001d;
-        public static final int route_row=0x7f03001e;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001f;
+        public static final int route_list=0x7f03001e;
+        public static final int route_row=0x7f03001f;
+        public static final int support_simple_spinner_dropdown_item=0x7f030020;
     }
     public static final class menu {
         public static final int user_profile=0x7f0c0000;
@@ -1764,6 +1765,8 @@ containing a value of this type.
         public static final int common_signin_button_text_long=0x7f070018;
         public static final int hello_world=0x7f070028;
         public static final int hint_email=0x7f07002a;
+        public static final int server_base_url=0x7f070033;
+        public static final int server_ip_address=0x7f070032;
         public static final int title_activity_route_details=0x7f07002d;
         public static final int title_activity_routes=0x7f07002c;
         public static final int title_activity_user_routes=0x7f070030;
