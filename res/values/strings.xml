@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Where is my Shuttle</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Manage Your Settings</string>
+    <string name="hint_email">"Please enter your Email "</string>
+    <string name="btnAddEmailLabel">"Next "</string>
+    <string name="title_activity_routes">Select Your Route</string>
+    <string name="title_activity_route_details">Route Details</string>
+    <string name="btnCheckInLabel">"Check In "</string>
+    <string name="btnMapsLabel">Open in Maps</string>
+    <string name="title_activity_user_routes">Where is my Shuttle : My Routes</string>
+    <string name="btnSelectRouteLabel">Add to my routes</string>
+
+</resources>

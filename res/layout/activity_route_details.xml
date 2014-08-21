@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.ff.whereismyshuttle.RouteDetailsActivity" >
+
+    <Button
+        android:id="@+id/btnCheckIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="shareMyLocation"
+        android:text="@string/btnCheckInLabel" />
+
+
+    <Button
+        android:id="@+id/btnMaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnCheckIn"
+        android:layout_alignBottom="@+id/btnCheckIn"
+        android:layout_marginRight="15dp"
+        android:onClick="openInMaps"
+        android:layout_alignRight="@+id/routeDetailLIst"
+        android:text="@string/btnMapsLabel" />
+    
+	<RelativeLayout
+    	     android:layout_width="match_parent"
+    		 android:layout_height="400dp"
+    		 android:id="@+id/routeDetailMap"
+     	/>
+    
+	<RelativeLayout
+    	     android:layout_width="match_parent"
+    		 android:layout_height="400dp"
+    		 android:id="@+id/routeDetailLIst"
+    		 android:layout_below="@+id/btnCheckIn"
+     	>
+
+        <ListView
+            android:id="@+id/lvRouteDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            tools:listitem="@layout/route_details_row" >
+        </ListView>
+
+	</RelativeLayout>
+	    
+
+</RelativeLayout>
